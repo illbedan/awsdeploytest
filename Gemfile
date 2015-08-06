@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
-gem 'puma'
+gem 'passenger'
+#gem 'puma'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -35,7 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :developemnt do
   gem 'capistrano', '~> 3.1.0'
     # cap tasks to manage puma application server
-  gem 'capistrano-puma', require: false
+  #gem 'capistrano-puma', require: false
   gem 'capistrano-rails',   '~> 1.1', require: false
   gem 'capistrano-bundler', '~> 1.1', require: false
   gem 'capistrano-rvm',   '~> 0.1', require: false
