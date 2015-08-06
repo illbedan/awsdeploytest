@@ -2,7 +2,7 @@
 lock '3.1.0'
 
 set :application, 'Blarg'
-set :repo_url, 'git@github.com:illbedan/awsdeploytest.git'
+set :repo_url, 'https://github.com/illbedan/awsdeploytest.git'
 set :deploy_to, '/home/deploy/apps/awsdeploytest'
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 # Default branch is :master
