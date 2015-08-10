@@ -26,3 +26,37 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+sudo yum update
+sudo yum install postgresql postgresql-server postgresql-devel postgresql-contrib postgresql-docs
+sudo service postgresql initdb
+sudo vim /var/lib/pgsql/data/pg_hba.conf
+* set psql permissions....
+* set up authentication in this file
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable --rails
+source /home/ec2-user/.rvm/scripts/rvm
+* close all sessions, restart
+* make a deploy user, add them to wheel, uncomment the line that gives wheel sudo without password in visudo
+* install rvm as deploy. prolly shouldn't have as ec2-user
+sudo yum install httpd
+sudo chkconfig httpd on
+vi /etc/httpd/conf/httpd.conf
+*edit the line at the bottom that says NameVirtualHost *:80
+sudo service httpd start
+gem install passenger
+sudo yum install curl-devel httpd-devel
+sudo chmod o+x "/home/deploy"
+passenger-install-apache2-module
+* had to do 2 things, one was add a swap file, because the micro server has no memory.
+*then add the following to /etc/httpd/conf/httpd.conf
+   LoadModule passenger_module /home/deploy/.rvm/gems/ruby-2.2.1/gems/passenger-5.0.15/buildout/apache2/mod_passenger.so
+   <IfModule mod_passenger.c>
+     PassengerRoot /home/deploy/.rvm/gems/ruby-2.2.1/gems/passenger-5.0.15
+     PassengerDefaultRuby /home/deploy/.rvm/gems/ruby-2.2.1/wrappers/ruby
+   </IfModule>
+
+... now we probably need to set more postgres stuff up, since we haven't added a user, but gonna cap first for debugging.
+
+
+    

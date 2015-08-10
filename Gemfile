@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :developemnt do
-  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano'
     # cap tasks to manage puma application server
   #gem 'capistrano-puma', require: false
   gem 'capistrano-rails',   '~> 1.1', require: false
